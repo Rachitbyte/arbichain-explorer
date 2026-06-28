@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArbiChain Explorer: An interactive Web3 educational platform explaining Layer 2 scaling, live crypto prices, and blockchain mechanics.">
     <title>ArbiChain Explorer - Simulator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,7 @@
             <li><a href="prices.html">Live Prices</a></li>
             <li><a href="simulator.html">Simulator</a></li>
           </ul>
-          <button class="nav-toggle" id="navToggle">☰</button>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         </div>
       </nav>
     </header>
@@ -57,16 +58,16 @@
               <div class="block-status" id="status1">⬤ Unmined</div>
             </div>
             <div class="block-fields">
-              <label>Block Data</label>
+              <label for="data1">Block Data</label>
               <input type="text" id="data1" placeholder="Enter any data...">
               
-              <label>Previous Hash</label>
+              <label for="prevHash1">Previous Hash</label>
               <input type="text" id="prevHash1" class="readonly-input" value="0000000000000000" readonly>
               
-              <label>Nonce</label>
+              <label for="nonce1">Nonce</label>
               <input type="number" id="nonce1" class="readonly-input" value="0" readonly>
               
-              <label>Hash</label>
+              <label for="hash1">Hash</label>
               <input type="text" id="hash1" class="readonly-input hash-display" value="—" readonly>
             </div>
             <button class="btn-primary" id="mineBtn1" style="width: 100%">⛏ Mine Block 1</button>
@@ -84,16 +85,16 @@
               <div class="block-status" id="status2">⬤ Waiting for Block 1</div>
             </div>
             <div class="block-fields">
-              <label>Block Data</label>
+              <label for="data2">Block Data</label>
               <input type="text" id="data2" placeholder="Enter any data...">
               
-              <label>Previous Hash</label>
+              <label for="prevHash2">Previous Hash</label>
               <input type="text" id="prevHash2" class="readonly-input" value="" readonly>
               
-              <label>Nonce</label>
+              <label for="nonce2">Nonce</label>
               <input type="number" id="nonce2" class="readonly-input" value="0" readonly>
               
-              <label>Hash</label>
+              <label for="hash2">Hash</label>
               <input type="text" id="hash2" class="readonly-input hash-display" value="—" readonly>
             </div>
             <button class="btn-primary" id="mineBtn2" style="width: 100%" disabled>⛏ Mine Block 2</button>

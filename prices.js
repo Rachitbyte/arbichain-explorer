@@ -26,8 +26,9 @@ async function fetchPrices() {
     grid.innerHTML = Object.entries(coins).map(([id, coin]) => {
       const info = data[id];
       const price = info.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
-      const change = info.usd_24h_change?.toFixed(2);
-      const isPositive = change >= 0;
+      const rawChange = info.usd_24h_change ?? 0;
+      const change = rawChange.toFixed(2);
+      const isPositive = rawChange >= 0;
       const marketCap = (info.usd_market_cap / 1e9).toFixed(2);
       const changeClass = isPositive ? 'positive' : 'negative';
       const arrow = isPositive ? '▲' : '▼';

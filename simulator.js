@@ -80,6 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('block1').classList.remove('valid-block');
   });
 
+  document.getElementById('data2').addEventListener('input', () => {
+    document.getElementById('status2').textContent = '⬤ Unmined';
+    document.getElementById('status2').className = 'block-status';
+    document.getElementById('hash2').value = '';
+    document.getElementById('nonce2').value = '0';
+    document.getElementById('block2').classList.remove('valid-block');
+  });
+
   document.getElementById('mineBtn1').addEventListener('click', () => mineBlock(1));
   document.getElementById('mineBtn2').addEventListener('click', () => mineBlock(2));
 });

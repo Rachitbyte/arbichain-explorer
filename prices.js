@@ -23,7 +23,10 @@ async function fetchPrices() {
     if (!res.ok) throw new Error('API error');
     const data = await res.json();
 
-    grid.innerHTML = Object.entries(coins).map(([id, coin]) => {
+    grid.style.transition = 'opacity 0.4s ease';
+    grid.style.opacity = 0;
+    setTimeout(() => {
+      grid.innerHTML = Object.entries(coins).map(([id, coin]) => {
       const info = data[id];
       const price = info.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
       const rawChange = info.usd_24h_change ?? 0;
@@ -54,6 +57,8 @@ async function fetchPrices() {
         </div>
       `;
     }).join('');
+      grid.style.opacity = 1;
+    }, 400);
 
     lastUpdated.textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
   } catch (err) {

@@ -21,11 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- PREMIUM WEB3 AESTHETICS ---
 
-  // 1. Mouse-Follow Global Variables
-  document.addEventListener('mousemove', (e) => {
-    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
-  });
+  
 
   // 2. Card Tilt & Glow Hover
   const cards = document.querySelectorAll('.card, .block-card');
@@ -207,6 +203,58 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   counters.forEach(c => counterObserver.observe(c));
 
+
+  // 8. Premium Web3 Background Engine
+  if (!prefersReducedMotion) {
+    const bgContainer = document.createElement('div');
+    bgContainer.className = 'web3-bg-container';
+    
+    const aurora = document.createElement('div');
+    aurora.className = 'web3-aurora';
+    bgContainer.appendChild(aurora);
+    
+    const grid = document.createElement('div');
+    grid.className = 'web3-grid';
+    bgContainer.appendChild(grid);
+    
+    for (let i = 0; i < 6; i++) {
+      const orb = document.createElement('div');
+      orb.className = `web3-orb orb-${i}`;
+      bgContainer.appendChild(orb);
+    }
+    
+    const mouseGlow = document.createElement('div');
+    mouseGlow.className = 'web3-mouse-glow';
+    bgContainer.appendChild(mouseGlow);
+
+    const heroGlow = document.createElement('div');
+    heroGlow.className = 'web3-hero-glow';
+    bgContainer.appendChild(heroGlow);
+
+    document.body.prepend(bgContainer);
+    
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      setTimeout(() => mouseGlow.style.opacity = '1', 1000);
+      document.addEventListener('mousemove', (e) => {
+        if (!window.glowTicking) {
+          window.requestAnimationFrame(() => {
+            mouseGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            window.glowTicking = false;
+          });
+          window.glowTicking = true;
+        }
+      });
+    }
+    
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        bgContainer.classList.add('paused');
+      } else {
+        bgContainer.classList.remove('paused');
+      }
+    });
+  }
+
   // 7. Theme Toggle
   const themeToggle = document.getElementById('themeToggle');
   if (themeToggle) {
@@ -218,3 +266,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+  // 9. Premium Micro-Interactions
+  if (!prefersReducedMotion) {
+    // Nav Slide Indicator
+    const navLinksList = document.querySelector('.nav-links');
+    if (navLinksList) {
+      const indicator = document.createElement('div');
+      indicator.className = 'nav-indicator';
+      navLinksList.appendChild(indicator);
+      
+      const links = Array.from(navLinksList.querySelectorAll('a'));
+      let activeLink = links.find(l => window.location.href.includes(l.getAttribute('href'))) || links[0];
+      
+      const updateIndicator = (el) => {
+        if (!el) return;
+        indicator.style.width = `${el.offsetWidth}px`;
+        indicator.style.left = `${el.offsetLeft}px`;
+      };
+      
+      // Delay slightly for fonts
+      setTimeout(() => updateIndicator(activeLink), 150);
+      window.addEventListener('resize', () => updateIndicator(activeLink));
+      
+      links.forEach(link => {
+        link.addEventListener('mouseenter', () => updateIndicator(link));
+      });
+      navLinksList.addEventListener('mouseleave', () => updateIndicator(activeLink));
+    }
+
+    // Scrolled Navbar Blur
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      }, { passive: true });
+    }
+
+    // Ripple Effect on Buttons
+    document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+      btn.addEventListener('mousedown', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+  }

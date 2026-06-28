@@ -10,7 +10,8 @@
   --text-heading:  #ffffff;
   --border:        #1e1e30;
   --success:       #22c55e;
-  --danger:        #ef4444;
+  --danger: #ef4444;
+  --warning: #f59e0b;
   --valid-block:   #09eab4;
   --invalid-block: #ef4444;
   --glass-bg: rgba(255, 255, 255, 0.02);
@@ -777,4 +778,40 @@ body { animation: page-fade-in 0.6s ease-out forwards; }
 .card-icon {
   font-size: 32px;
   margin-bottom: 16px;
+}
+
+/* Lucide Icons Integration */
+.card-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-cyan);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+  will-change: transform, color;
+}
+.card:hover .card-icon svg, .block-card:hover .card-icon svg, .highlight-box:hover .card-icon svg, .info-card:hover .card-icon svg {
+  color: var(--accent-indigo);
+  transform: scale(1.1) rotate(5deg);
+}
+.inline-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: -4px;
+  margin-right: 4px;
+}
+.inline-icon.success { color: var(--success); }
+.inline-icon.danger { color: var(--danger); }
+.inline-icon.warning { color: var(--warning); }
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: -4px;
+  margin-right: 8px;
+  color: var(--accent-cyan);
+}
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: -4px;
+  margin-right: 6px;
 }

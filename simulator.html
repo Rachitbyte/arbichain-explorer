@@ -21,6 +21,7 @@
         }
       })();
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header class="site-header">
@@ -56,15 +57,15 @@
       <section class="section">
         <div class="grid three-col" style="margin-bottom: 48px;">
           <div class="card">
-            <h3>🔐 Hash</h3>
+            <h3><i data-lucide="shield-ellipsis" class="header-icon"></i> Hash</h3>
             <p class="text-muted">A hash is a unique fingerprint for any data. Change one character and the entire hash changes completely.</p>
           </div>
           <div class="card">
-            <h3>🎲 Nonce</h3>
+            <h3><i data-lucide="shuffle" class="header-icon"></i> Nonce</h3>
             <p class="text-muted">A nonce is a number miners increment until the hash output meets a target (e.g., starts with '00'). This is Proof of Work.</p>
           </div>
           <div class="card">
-            <h3>⛓️ Chain</h3>
+            <h3><i data-lucide="link-2" class="header-icon"></i> Chain</h3>
             <p class="text-muted">Each block stores the previous block's hash. Changing Block 1 breaks Block 2's link — this is immutability.</p>
           </div>
         </div>
@@ -88,7 +89,7 @@
               <label for="hash1">Hash</label>
               <input type="text" id="hash1" class="readonly-input hash-display" value="—" readonly>
             </div>
-            <button class="btn-primary" id="mineBtn1" style="width: 100%">⛏ Mine Block 1</button>
+            <button class="btn-primary" id="mineBtn1" style="width: 100%"><i data-lucide="hammer" class="btn-icon"></i> Mine Block 1</button>
           </div>
 
           <div class="chain-arrow">
@@ -115,12 +116,12 @@
               <label for="hash2">Hash</label>
               <input type="text" id="hash2" class="readonly-input hash-display" value="—" readonly>
             </div>
-            <button class="btn-primary" id="mineBtn2" style="width: 100%" disabled>⛏ Mine Block 2</button>
+            <button class="btn-primary" id="mineBtn2" style="width: 100%" disabled><i data-lucide="hammer" class="btn-icon"></i> Mine Block 2</button>
           </div>
         </div>
         
         <div class="simulator-insight" style="margin-top: 48px;">
-          <h3>💡 The Core Insight</h3>
+          <h3><i data-lucide="lightbulb" class="header-icon"></i> The Core Insight</h3>
           <p class="text-muted" style="color: var(--text-primary);">When you changed Block 1's data above, Block 2 immediately became invalid. In a real blockchain with thousands of nodes, an attacker would need to re-mine not just Block 2, but every subsequent block — faster than the entire network combined. This is why blockchain data is effectively immutable.</p>
         </div>
       </section>

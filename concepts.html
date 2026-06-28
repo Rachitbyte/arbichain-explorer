@@ -21,6 +21,7 @@
         }
       })();
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header class="site-header">
@@ -89,7 +90,7 @@
               <div class="col-header bg-dark">Bitcoin</div>
               <div class="concept-row"><span class="label">Created:</span> 2009 by Satoshi Nakamoto</div>
               <div class="concept-row"><span class="label">Purpose:</span> Digital gold / store of value</div>
-              <div class="concept-row"><span class="label">Smart Contracts:</span> ❌ Not supported</div>
+              <div class="concept-row"><span class="label">Smart Contracts:</span> <i data-lucide="x-circle" class="inline-icon danger"></i> Not supported</div>
               <div class="concept-row"><span class="label">Native Token:</span> BTC</div>
               <div class="concept-row"><span class="label">Consensus:</span> Proof of Work</div>
               <div class="concept-row"><span class="label">Use Case:</span> Send/receive value</div>
@@ -98,7 +99,7 @@
               <div class="col-header bg-dark">Ethereum</div>
               <div class="concept-row"><span class="label">Created:</span> 2015 by Vitalik Buterin</div>
               <div class="concept-row"><span class="label">Purpose:</span> Programmable world computer</div>
-              <div class="concept-row"><span class="label">Smart Contracts:</span> ✅ Core feature</div>
+              <div class="concept-row"><span class="label">Smart Contracts:</span> <i data-lucide="check-circle-2" class="inline-icon success"></i> Core feature</div>
               <div class="concept-row"><span class="label">Native Token:</span> ETH</div>
               <div class="concept-row"><span class="label">Consensus:</span> Proof of Stake (since 2022)</div>
               <div class="concept-row"><span class="label">Use Case:</span> DeFi, NFTs, dApps, DAOs</div>
@@ -115,7 +116,7 @@
         <div class="grid two-col key-grid">
           <div class="card key-card">
             <div class="card-header">
-              <div class="card-icon">🌐</div>
+              <div class="card-icon"><i data-lucide="globe"></i></div>
               <div class="badge badge-success">Share Freely</div>
             </div>
             <h3>Public Key</h3>
@@ -125,12 +126,12 @@
           
           <div class="card key-card danger-border">
             <div class="card-header">
-              <div class="card-icon">🔑</div>
+              <div class="card-icon"><i data-lucide="key"></i></div>
               <div class="badge badge-danger">Never Share</div>
             </div>
             <h3>Private Key</h3>
             <p>Your private key is like your PIN + signature combined. It cryptographically proves you own the wallet and authorizes every transaction. If someone gets this, they own your funds permanently.</p>
-            <div class="warning-box">⚠️ Losing your private key = losing your funds forever. There is no reset.</div>
+            <div class="warning-box"><i data-lucide="alert-triangle" class="inline-icon warning"></i> Losing your private key = losing your funds forever. There is no reset.</div>
           </div>
         </div>
         <div class="inline-diagram">

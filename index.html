@@ -21,6 +21,7 @@
         }
       })();
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header class="site-header">
@@ -77,18 +78,18 @@
         <h2 class="section-title">The Problem With Ethereum Mainnet</h2>
         <div class="grid two-col">
           <div class="card">
-            <div class="card-icon">⚡</div>
+            <div class="card-icon"><i data-lucide="zap"></i></div>
             <h3>Congestion</h3>
             <p>Ethereum processes ~15 transactions per second. During peak demand, this leads to network congestion and failed transactions.</p>
           </div>
           <div class="card">
-            <div class="card-icon">💸</div>
+            <div class="card-icon"><i data-lucide="coins"></i></div>
             <h3>High Gas Fees</h3>
             <p>A simple token transfer on Ethereum mainnet can cost $5–$50 in gas fees during busy periods, making small transactions economically unviable.</p>
           </div>
         </div>
         <div class="highlight-box">
-          <div class="card-icon">🔒</div>
+          <div class="card-icon"><i data-lucide="shield-check"></i></div>
           <h3>But Ethereum's Security Is Non-Negotiable</h3>
           <p>Ethereum's decentralization and security are its greatest assets. The solution wasn't to replace Ethereum — it was to build on top of it.</p>
         </div>
@@ -100,17 +101,17 @@
         <h2 class="section-title">Enter Arbitrum: Ethereum's Leading Layer 2</h2>
         <div class="grid three-col">
           <div class="card">
-            <div class="card-icon">🚀</div>
+            <div class="card-icon"><i data-lucide="rocket"></i></div>
             <h3>Optimistic Rollups</h3>
             <p>Arbitrum bundles hundreds of transactions into a single batch and posts it to Ethereum. Transactions are assumed valid unless challenged — this is called Optimistic Rollup technology.</p>
           </div>
           <div class="card">
-            <div class="card-icon">⚙️</div>
+            <div class="card-icon"><i data-lucide="settings"></i></div>
             <h3>EVM Compatible</h3>
             <p>Every smart contract, tool, and wallet that works on Ethereum works on Arbitrum without any changes. Developers deploy the exact same Solidity code.</p>
           </div>
           <div class="card">
-            <div class="card-icon">🔗</div>
+            <div class="card-icon"><i data-lucide="link"></i></div>
             <h3>Inherited Security</h3>
             <p>Arbitrum doesn't run its own consensus. All transaction data is posted to Ethereum mainnet, meaning Arbitrum inherits Ethereum's battle-tested security.</p>
           </div>
@@ -153,8 +154,8 @@
               </tr>
               <tr>
                 <td>EVM Compatible</td>
-                <td>✅ Yes</td>
-                <td>✅ Yes</td>
+                <td><i data-lucide="check-circle-2" class="inline-icon success"></i> Yes</td>
+                <td><i data-lucide="check-circle-2" class="inline-icon success"></i> Yes</td>
               </tr>
             </tbody>
           </table>
@@ -171,25 +172,25 @@
         <div class="workflow-steps">
           <div class="step">
             <div class="step-badge">1</div>
-            <div class="card-icon">👤</div>
+            <div class="card-icon"><i data-lucide="user"></i></div>
             <p>You submit a transaction on Arbitrum</p>
           </div>
           <div class="step-arrow">→</div>
           <div class="step">
             <div class="step-badge">2</div>
-            <div class="card-icon">📦</div>
+            <div class="card-icon"><i data-lucide="package"></i></div>
             <p>Sequencer orders & batches transactions</p>
           </div>
           <div class="step-arrow">→</div>
           <div class="step">
             <div class="step-badge">3</div>
-            <div class="card-icon">⛓️</div>
+            <div class="card-icon"><i data-lucide="network"></i></div>
             <p>Batch is compressed and posted to Ethereum</p>
           </div>
           <div class="step-arrow">→</div>
           <div class="step">
             <div class="step-badge">4</div>
-            <div class="card-icon">✅</div>
+            <div class="card-icon"><i data-lucide="check-circle-2"></i></div>
             <p>Ethereum confirms. Your transaction is final.</p>
           </div>
         </div>

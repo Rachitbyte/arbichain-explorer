@@ -206,6 +206,20 @@ document.addEventListener('DOMContentLoaded', () => {
     mouseGlow.className = 'web3-mouse-glow';
     bgContainer.appendChild(mouseGlow);
 
+    // Geometric SVG Backgrounds
+    const geos = [
+      '<svg class="bg-geo bg-geo-1" viewBox="0 0 100 100" fill="none" stroke="var(--accent-cyan)" stroke-width="1"><polygon points="50,5 95,25 95,75 50,95 5,75 5,25"/></svg>',
+      '<svg class="bg-geo bg-geo-2" viewBox="0 0 100 100" fill="none" stroke="var(--accent-indigo)" stroke-width="1"><circle cx="50" cy="50" r="45"/><circle cx="50" cy="50" r="30"/></svg>',
+      '<svg class="bg-geo bg-geo-3" viewBox="0 0 100 100" fill="none" stroke="var(--accent-cyan)" stroke-width="1"><rect x="25" y="25" width="50" height="50" transform="rotate(45 50 50)"/></svg>',
+      '<svg class="bg-geo bg-geo-4" viewBox="0 0 100 100" fill="none" stroke="var(--accent-indigo)" stroke-width="1"><path d="M10,90 L50,10 L90,90 Z"/></svg>'
+    ];
+    geos.forEach(geoHTML => {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = geoHTML;
+      bgContainer.appendChild(wrapper.firstChild);
+    });
+
+
     const heroGlow = document.createElement('div');
     heroGlow.className = 'web3-hero-glow';
     bgContainer.appendChild(heroGlow);
@@ -244,7 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', newTheme);
     });
   }
-});
 
   // 9. Premium Micro-Interactions
   if (!prefersReducedMotion) {
@@ -298,3 +311,109 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+
+  // 10. Lenis Smooth Scroll
+  if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      direction: 'vertical', 
+      gestureDirection: 'vertical',
+      smooth: true,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }
+
+
+  // 11. Custom Premium Cursor
+  if (!prefersReducedMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.body.classList.add('custom-cursor');
+    
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+    let dotX = mouseX;
+    let dotY = mouseY;
+
+    const lerp = (start, end, factor) => start + (end - start) * factor;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (dot.style.opacity === '0' || dot.style.opacity === '') {
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    });
+
+    document.addEventListener('mousedown', () => ring.classList.add('clicking'));
+    document.addEventListener('mouseup', () => ring.classList.remove('clicking'));
+
+    const interactiveSelectors = 'a, button, .card, .block-card, .price-card, .simulator-card, .highlight-box, input, .nav-logo';
+    
+    document.body.addEventListener('mouseover', (e) => {
+      const target = e.target.closest(interactiveSelectors);
+      if (target) {
+        dot.classList.add('hover');
+        ring.classList.add('hover');
+        if (target.classList.contains('btn-primary')) {
+          ring.classList.add('hover-primary');
+        }
+      }
+    });
+    
+    document.body.addEventListener('mouseout', (e) => {
+      const target = e.target.closest(interactiveSelectors);
+      if (target) {
+        dot.classList.remove('hover');
+        ring.classList.remove('hover');
+        ring.classList.remove('hover-primary');
+      }
+    });
+
+    const renderCursor = () => {
+      dotX = lerp(dotX, mouseX, 0.8);
+      dotY = lerp(dotY, mouseY, 0.8);
+      ringX = lerp(ringX, mouseX, 0.2);
+      ringY = lerp(ringY, mouseY, 0.2);
+
+      dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate3d(-50%, -50%, 0)`;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate3d(-50%, -50%, 0)`;
+
+      requestAnimationFrame(renderCursor);
+    };
+    requestAnimationFrame(renderCursor);
+  }
+
+});

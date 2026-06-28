@@ -81,19 +81,87 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 5. Scroll Reveals
-  const revealElements = document.querySelectorAll('.section, .card, .step, .highlight-box, .insight-box, .simulator-insight');
-  revealElements.forEach(el => el.classList.add('reveal'));
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-active');
-        revealObserver.unobserve(entry.target);
+  // 5. Advanced Premium Scroll Reveals & Load Animations
+  if (!prefersReducedMotion) {
+    // Initial Load Animations
+    const nav = document.querySelector('.site-header');
+    if (nav) {
+      nav.style.opacity = '0';
+      nav.style.transform = 'translateY(-20px)';
+      nav.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          nav.style.opacity = '1';
+          nav.style.transform = 'translateY(0)';
+        }, 50);
+      });
+    }
+
+    const hero = document.querySelector('.hero-content') || document.querySelector('.prices-header') || document.querySelector('.concepts-header');
+    if (hero) {
+      hero.style.opacity = '0';
+      hero.style.transform = 'translateY(30px) scale(0.98)';
+      hero.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 150ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 150ms';
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          hero.style.opacity = '1';
+          hero.style.transform = 'translateY(0) scale(1)';
+        }, 50);
+      });
+    }
+
+    // Identify elements to reveal
+    const revealSelectors = [
+      '.section',
+      '.card',
+      '.block-card',
+      '.step',
+      '.highlight-box',
+      '.insight-box',
+      '.simulator-insight',
+      '.concept-row',
+      '.table-container',
+      'footer',
+      '.image-container img',
+      '.illustration'
+    ];
+    
+    // Group children of common parents for staggering
+    const parentsMap = new Map();
+    
+    document.querySelectorAll(revealSelectors.join(', ')).forEach(el => {
+      if (el === hero || el.closest('.hero-content')) return; // skip hero elements
+      
+      el.classList.add('reveal');
+      
+      const parent = el.parentElement;
+      if (!parentsMap.has(parent)) {
+        parentsMap.set(parent, []);
       }
+      parentsMap.get(parent).push(el);
     });
-  }, { threshold: 0.1 });
-  revealElements.forEach(el => revealObserver.observe(el));
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const parent = el.parentElement;
+          const siblings = parentsMap.get(parent);
+          if (siblings && siblings.length > 1) {
+            const index = siblings.indexOf(el);
+            const delay = Math.min(index * 100, 500); // Max 500ms stagger
+            el.style.transitionDelay = `${delay}ms`;
+          }
+          el.classList.add('reveal-active');
+          revealObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  }
 
   // 6. Animated Counters
   const counters = document.querySelectorAll('.counter');
@@ -104,6 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = parseFloat(el.getAttribute('data-target'));
         const prefix = el.getAttribute('data-prefix') || '';
         const suffix = el.getAttribute('data-suffix') || '';
+        
+        if (prefersReducedMotion) {
+          el.textContent = `${prefix}${target}${suffix}`;
+          counterObserver.unobserve(el);
+          return;
+        }
         
         let start = 0;
         const duration = 1500;

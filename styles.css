@@ -1,18 +1,68 @@
 :root {
-  --bg-primary:    #0d0d14;   /* deep space black — page background */
-  --bg-surface:    #13131f;   /* card / section background */
-  --bg-elevated:   #1a1a2e;   /* hover states, elevated cards */
-  --accent-cyan:   #09eab4;   /* primary accent — buttons, highlights, borders */
-  --accent-indigo: #6366f1;   /* secondary accent — badges, tags */
-  --accent-glow:   rgba(9, 234, 180, 0.15); /* glow effect for cards */
-  --text-primary:  #f0f0ff;   /* main text */
-  --text-muted:    #7a7990;   /* subtext, labels */
-  --text-heading:  #ffffff;   /* headings */
-  --border:        #1e1e30;   /* card borders */
-  --success:       #22c55e;   /* positive price change */
-  --danger:        #ef4444;   /* negative price change */
-  --valid-block:   #09eab4;   /* valid block indicator */
-  --invalid-block: #ef4444;   /* invalid block indicator */
+  --bg-primary:    #0d0d14;
+  --bg-surface:    #13131f;
+  --bg-elevated:   #1a1a2e;
+  --accent-cyan:   #09eab4;
+  --accent-indigo: #6366f1;
+  --accent-glow:   rgba(9, 234, 180, 0.15);
+  --text-primary:  #f0f0ff;
+  --text-muted:    #7a7990;
+  --text-heading:  #ffffff;
+  --border:        #1e1e30;
+  --success:       #22c55e;
+  --danger:        #ef4444;
+  --valid-block:   #09eab4;
+  --invalid-block: #ef4444;
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-glow: rgba(255, 255, 255, 0.06);
+  --ambient-color: rgba(99, 102, 241, 0.08);
+  --th-bg: rgba(9, 234, 180, 0.1);
+  --tr-even: rgba(255, 255, 255, 0.02);
+  --coin-icon-bg: rgba(255, 255, 255, 0.05);
+  --error-bg: rgba(239, 68, 68, 0.08);
+  --warning-bg: rgba(239, 68, 68, 0.1);
+  --btn-text: #0d0d14;
+  --badge-bg: rgba(99, 102, 241, 0.15);
+  --badge-border: rgba(99, 102, 241, 0.3);
+  --success-bg: rgba(9, 234, 180, 0.03);
+  --nav-bg: rgba(13, 13, 20, 0.4);
+}
+[data-theme="light"] {
+  --bg-primary:    #f8fafc;
+  --bg-surface:    #ffffff;
+  --bg-elevated:   #f1f5f9;
+  --accent-cyan:   #059669; 
+  --accent-indigo: #4f46e5;
+  --accent-glow:   rgba(5, 150, 105, 0.15);
+  --text-primary:  #334155;
+  --text-muted:    #64748b;
+  --text-heading:  #0f172a;
+  --border:        #e2e8f0;
+  --success:       #16a34a;
+  --danger:        #dc2626;
+  --valid-block:   rgba(5, 150, 105, 0.5);
+  --invalid-block: #dc2626;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-glow: rgba(0, 0, 0, 0.03);
+  --ambient-color: rgba(79, 70, 229, 0.05);
+  --th-bg: rgba(5, 150, 105, 0.05);
+  --tr-even: rgba(0, 0, 0, 0.02);
+  --coin-icon-bg: rgba(0, 0, 0, 0.04);
+  --error-bg: rgba(220, 38, 38, 0.05);
+  --warning-bg: rgba(220, 38, 38, 0.05);
+  --btn-text: #ffffff;
+  --badge-bg: rgba(79, 70, 229, 0.1);
+  --badge-border: rgba(79, 70, 229, 0.2);
+  --success-bg: rgba(5, 150, 105, 0.03);
+  --nav-bg: rgba(255, 255, 255, 0.6);
+}
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.card, .block-card, .navbar, .btn-primary, .btn-outline, .highlight-box, .insight-box, .table-container, table, th, td, .concept-col, .col-header, .concept-row, .tagline, .example-box, .warning-box, .error-box, .step, .simulator-insight, input, .ambient-glow, .badge {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,15 +86,15 @@ body.page-exit {
   width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: -1;
-  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.08), transparent 40%);
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--ambient-color), transparent 40%);
 }
 
 /* Shared card style (Glassmorphism & Magnetic Glow) */
 .card, .block-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 24px;
@@ -57,7 +107,7 @@ body.page-exit {
   content: '';
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(800px circle at var(--card-mouse-x, 50%) var(--card-mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+  background: radial-gradient(800px circle at var(--card-mouse-x, 50%) var(--card-mouse-y, 50%), var(--glass-glow), transparent 40%);
   opacity: 0;
   transition: opacity 0.5s;
   pointer-events: none;
@@ -75,7 +125,7 @@ body.page-exit {
 /* Accent button */
 .btn-primary {
   background: var(--accent-cyan);
-  color: #0d0d14;
+  color: var(--btn-text);
   border: none;
   padding: 12px 28px;
   border-radius: 8px;
@@ -108,9 +158,9 @@ body.page-exit {
 
 /* Badge */
 .badge {
-  background: rgba(99, 102, 241, 0.15);
+  background: var(--badge-bg);
   color: var(--accent-indigo);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid var(--badge-border);
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -138,10 +188,10 @@ body.page-exit {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 13, 20, 0.4);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--glass-border);
 }
 .nav-inner {
   max-width: 1100px;
@@ -255,8 +305,8 @@ body.page-exit {
 .table-container { overflow-x: auto; margin-top: 32px; }
 table { width: 100%; border-collapse: collapse; background: var(--bg-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); text-align: left; }
 th, td { padding: 16px; border-bottom: 1px solid var(--border); }
-th { background: rgba(9, 234, 180, 0.1); color: var(--accent-cyan); font-weight: 600; }
-tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+th { background: var(--th-bg); color: var(--accent-cyan); font-weight: 600; }
+tr:nth-child(even) { background: var(--glass-bg); }
 tr:last-child td { border-bottom: none; }
 
 /* Callout Box */
@@ -290,7 +340,7 @@ tr:last-child td { border-bottom: none; }
 }
 .step-badge {
   background: var(--accent-cyan);
-  color: #0d0d14;
+  color: var(--btn-text);
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -334,13 +384,13 @@ tr:last-child td { border-bottom: none; }
 .concept-card-wrapper { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 24px; }
 .col-header { padding: 16px 24px; font-weight: 700; font-size: 1.2rem; text-align: center; }
 .bg-indigo { background: var(--accent-indigo); color: #fff; }
-.bg-cyan { background: var(--accent-cyan); color: #0d0d14; }
+.bg-cyan { background: var(--accent-cyan); color: var(--btn-text); }
 .bg-dark { background: var(--bg-elevated); color: var(--text-heading); border-bottom: 1px solid var(--border); }
 .concept-row { padding: 12px 24px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; }
 .concept-row:last-child { border-bottom: none; }
 .concept-row .label { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; margin-bottom: 4px; }
-.web2-col { background: rgba(239,68,68,0.03); }
-.web3-col { background: rgba(9,234,180,0.03); }
+.web2-col { background: var(--error-bg); }
+.web3-col { background: var(--success-bg); }
 
 .tagline { text-align: center; padding: 20px; font-weight: 700; font-size: 1.1rem; border-top: 1px solid var(--border); background: var(--bg-surface); }
 .cyan-text { color: var(--accent-cyan); }
@@ -352,7 +402,7 @@ tr:last-child td { border-bottom: none; }
 .danger-border { border-color: rgba(239,68,68,0.5); }
 .danger-border:hover { border-color: var(--danger); box-shadow: 0 0 20px rgba(239,68,68,0.15); }
 .example-box { font-family: 'Space Mono', monospace; background: var(--bg-primary); padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-top: 16px; word-break: break-all; border: 1px solid var(--border); }
-.warning-box { background: rgba(239,68,68,0.1); color: var(--danger); padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-top: 16px; border: 1px solid rgba(239,68,68,0.3); }
+.warning-box { background: var(--warning-bg); color: var(--danger); padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-top: 16px; border: 1px solid rgba(239,68,68,0.3); }
 
 .inline-diagram { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-top: 32px; font-size: 0.95rem; color: var(--text-primary); font-family: 'Space Mono', monospace; }
 .diagram-step { color: var(--accent-indigo); }
@@ -378,7 +428,7 @@ tr:last-child td { border-bottom: none; }
 .coin-icon {
   width: 52px; height: 52px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 22px; font-weight: 700; background: rgba(255,255,255,0.05);
+  font-size: 22px; font-weight: 700; background: var(--glass-border);
 }
 .coin-name { font-size: 18px; font-weight: 600; color: var(--text-heading); }
 .coin-symbol { font-size: 13px; color: var(--text-muted); text-transform: uppercase; }
@@ -395,7 +445,7 @@ tr:last-child td { border-bottom: none; }
 }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 .error-box {
-  background: rgba(239,68,68,0.08);
+  background: var(--error-bg);
   border: 1px solid rgba(239,68,68,0.3);
   border-radius: 12px;
   padding: 28px;
@@ -478,3 +528,32 @@ tr:last-child td { border-bottom: none; }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Theme Toggle */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-heading);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 36px;
+  height: 36px;
+  transition: background 0.2s;
+}
+.theme-toggle:hover {
+  background: var(--glass-bg);
+}
+.theme-toggle svg {
+  position: absolute;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+[data-theme="light"] .sun-icon { transform: rotate(90deg); opacity: 0; }
+[data-theme="light"] .moon-icon { transform: rotate(0deg); opacity: 1; }
+:root:not([data-theme="light"]) .sun-icon { transform: rotate(0deg); opacity: 1; }
+:root:not([data-theme="light"]) .moon-icon { transform: rotate(-90deg); opacity: 0; }

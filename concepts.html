@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArbiChain Explorer - Concepts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">◈</span> ARB Explorer
+          </a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="prices.html">Live Prices</a></li>
+            <li><a href="simulator.html">Simulator</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section header-section">
+        <div class="badge">4 Concepts · Visual Reference</div>
+        <h1>Web3 Concepts</h1>
+        <p class="subtitle">Core blockchain concepts explained clearly — no jargon, no textbook.</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Concept 1: Web 2.0 vs Web 3.0</h2>
+        <div class="concept-card-wrapper">
+          <div class="grid two-col no-gap">
+            <div class="card concept-col web2-col">
+              <div class="col-header bg-indigo">Web 2.0</div>
+              <div class="concept-row"><span class="label">Data Control:</span> Platforms own your data</div>
+              <div class="concept-row"><span class="label">Identity:</span> Username & password</div>
+              <div class="concept-row"><span class="label">Trust:</span> Trust the company (Facebook)</div>
+              <div class="concept-row"><span class="label">Payments:</span> Banks & payment processors</div>
+              <div class="concept-row"><span class="label">Servers:</span> Centralized cloud (AWS, GCP)</div>
+              <div class="concept-row"><span class="label">Censorship:</span> Platform can ban/delete you</div>
+            </div>
+            <div class="card concept-col web3-col">
+              <div class="col-header bg-cyan">Web 3.0</div>
+              <div class="concept-row"><span class="label">Data Control:</span> You own your data via wallet keys</div>
+              <div class="concept-row"><span class="label">Identity:</span> Cryptographic wallet address</div>
+              <div class="concept-row"><span class="label">Trust:</span> Trust the code (smart contracts)</div>
+              <div class="concept-row"><span class="label">Payments:</span> Peer-to-peer, no middlemen</div>
+              <div class="concept-row"><span class="label">Servers:</span> Decentralized nodes (IPFS, ETH)</div>
+              <div class="concept-row"><span class="label">Censorship:</span> Permissionless, censorship-resistant</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="section">
+        <h2 class="section-title">Concept 2: Ethereum vs Bitcoin</h2>
+        <div class="concept-card-wrapper">
+          <div class="grid two-col no-gap">
+            <div class="card concept-col">
+              <div class="col-header bg-dark">Bitcoin</div>
+              <div class="concept-row"><span class="label">Created:</span> 2009 by Satoshi Nakamoto</div>
+              <div class="concept-row"><span class="label">Purpose:</span> Digital gold / store of value</div>
+              <div class="concept-row"><span class="label">Smart Contracts:</span> ❌ Not supported</div>
+              <div class="concept-row"><span class="label">Native Token:</span> BTC</div>
+              <div class="concept-row"><span class="label">Consensus:</span> Proof of Work</div>
+              <div class="concept-row"><span class="label">Use Case:</span> Send/receive value</div>
+            </div>
+            <div class="card concept-col">
+              <div class="col-header bg-dark">Ethereum</div>
+              <div class="concept-row"><span class="label">Created:</span> 2015 by Vitalik Buterin</div>
+              <div class="concept-row"><span class="label">Purpose:</span> Programmable world computer</div>
+              <div class="concept-row"><span class="label">Smart Contracts:</span> ✅ Core feature</div>
+              <div class="concept-row"><span class="label">Native Token:</span> ETH</div>
+              <div class="concept-row"><span class="label">Consensus:</span> Proof of Stake (since 2022)</div>
+              <div class="concept-row"><span class="label">Use Case:</span> DeFi, NFTs, dApps, DAOs</div>
+            </div>
+          </div>
+          <div class="tagline cyan-text">Bitcoin = Digital Gold. Ethereum = Programmable Money.</div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="section">
+        <h2 class="section-title">Concept 3: Public Key vs Private Key</h2>
+        <div class="grid two-col key-grid">
+          <div class="card key-card">
+            <div class="card-header">
+              <div class="card-icon">🌐</div>
+              <div class="badge badge-success">Share Freely</div>
+            </div>
+            <h3>Public Key</h3>
+            <p>Your public key is like your bank account number. Anyone can send funds to it. It is derived mathematically from your private key and is safe to share openly. Also called your Wallet Address.</p>
+            <div class="example-box">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</div>
+          </div>
+          
+          <div class="card key-card danger-border">
+            <div class="card-header">
+              <div class="card-icon">🔑</div>
+              <div class="badge badge-danger">Never Share</div>
+            </div>
+            <h3>Private Key</h3>
+            <p>Your private key is like your PIN + signature combined. It cryptographically proves you own the wallet and authorizes every transaction. If someone gets this, they own your funds permanently.</p>
+            <div class="warning-box">⚠️ Losing your private key = losing your funds forever. There is no reset.</div>
+          </div>
+        </div>
+        <div class="inline-diagram">
+          <span>Private Key</span> <span class="arrow">→</span> <span class="diagram-step">[Mathematical Derivation]</span> <span class="arrow">→</span> <span>Public Key</span> <span class="arrow">→</span> <span class="diagram-step">[Hashing]</span> <span class="arrow">→</span> <span>Wallet Address</span>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="section">
+        <h2 class="section-title">Concept 4: Blockchain vs Traditional Database</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Traditional Database</th>
+                <th>Blockchain</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Control</td>
+                <td>Single authority (admin)</td>
+                <td>Distributed — no single owner</td>
+              </tr>
+              <tr>
+                <td>Data Change</td>
+                <td>Anyone with access can edit</td>
+                <td>Immutable — cannot alter history</td>
+              </tr>
+              <tr>
+                <td>Transparency</td>
+                <td>Private / permissioned</td>
+                <td>Public and auditable</td>
+              </tr>
+              <tr>
+                <td>Trust Model</td>
+                <td>Trust the organization</td>
+                <td>Trust the math & consensus</td>
+              </tr>
+              <tr>
+                <td>Speed</td>
+                <td>Very fast (milliseconds)</td>
+                <td>Slower (seconds to minutes)</td>
+              </tr>
+              <tr>
+                <td>Best For</td>
+                <td>High-speed internal data</td>
+                <td>Financial records, ownership, identity</td>
+              </tr>
+              <tr>
+                <td>Example</td>
+                <td>MySQL, PostgreSQL</td>
+                <td>Ethereum, Bitcoin, Solana</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="insight-box">
+          Blockchains are not better databases — they solve a different problem: how to agree on truth without trusting a central party.
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>Built by <strong>Rachit Sikka</strong> · 
+           <a href="https://github.com/Rachitbyte" target="_blank">GitHub ↗</a> · 
+           Arbitrum Builder Pods</p>
+        <p class="footer-sub">Arbitrum Web3 Explorer — Lampros DAO Assignment</p>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

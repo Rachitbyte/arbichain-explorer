@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArbiChain Explorer - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">◈</span> ARB Explorer
+          </a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="prices.html">Live Prices</a></li>
+            <li><a href="simulator.html">Simulator</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="badge">Arbitrum Builder Pods · Batch 2025</div>
+          <h1>The Future of <span>Ethereum Scaling</span></h1>
+          <p>Arbitrum is a Layer 2 solution that makes Ethereum faster, cheaper, and ready for mass adoption — without sacrificing security.</p>
+          <div class="hero-ctas">
+            <a href="concepts.html" class="btn-primary">Explore Concepts →</a>
+            <a href="prices.html" class="btn-outline">Live Prices ↗</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-value">55.9%</div>
+              <div class="stat-label">L2 Market Share</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">$5.65B</div>
+              <div class="stat-label">TVL</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">390M+</div>
+              <div class="stat-label">Transactions</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section why-l2">
+        <h2 class="section-title">The Problem With Ethereum Mainnet</h2>
+        <div class="grid two-col">
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Congestion</h3>
+            <p>Ethereum processes ~15 transactions per second. During peak demand, this leads to network congestion and failed transactions.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">💸</div>
+            <h3>High Gas Fees</h3>
+            <p>A simple token transfer on Ethereum mainnet can cost $5–$50 in gas fees during busy periods, making small transactions economically unviable.</p>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <div class="card-icon">🔒</div>
+          <h3>But Ethereum's Security Is Non-Negotiable</h3>
+          <p>Ethereum's decentralization and security are its greatest assets. The solution wasn't to replace Ethereum — it was to build on top of it.</p>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="section what-arbitrum">
+        <h2 class="section-title">Enter Arbitrum: Ethereum's Leading Layer 2</h2>
+        <div class="grid three-col">
+          <div class="card">
+            <div class="card-icon">🚀</div>
+            <h3>Optimistic Rollups</h3>
+            <p>Arbitrum bundles hundreds of transactions into a single batch and posts it to Ethereum. Transactions are assumed valid unless challenged — this is called Optimistic Rollup technology.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚙️</div>
+            <h3>EVM Compatible</h3>
+            <p>Every smart contract, tool, and wallet that works on Ethereum works on Arbitrum without any changes. Developers deploy the exact same Solidity code.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔗</div>
+            <h3>Inherited Security</h3>
+            <p>Arbitrum doesn't run its own consensus. All transaction data is posted to Ethereum mainnet, meaning Arbitrum inherits Ethereum's battle-tested security.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="section comparison-table-sec">
+        <h2 class="section-title">Arbitrum vs Ethereum Mainnet</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Ethereum Mainnet</th>
+                <th>Arbitrum One</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Avg Gas Fee</td>
+                <td>$5 – $50</td>
+                <td>$0.01 – $0.10</td>
+              </tr>
+              <tr>
+                <td>TPS</td>
+                <td>~15</td>
+                <td>~40,000</td>
+              </tr>
+              <tr>
+                <td>Finality</td>
+                <td>~12 seconds</td>
+                <td>~1 second (soft)</td>
+              </tr>
+              <tr>
+                <td>Security</td>
+                <td>Native</td>
+                <td>Inherited from ETH</td>
+              </tr>
+              <tr>
+                <td>EVM Compatible</td>
+                <td>✅ Yes</td>
+                <td>✅ Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout-box">
+          One Real-World Benefit: A DEX trade that costs $20 on Ethereum mainnet costs under $0.05 on Arbitrum — same security, 400x cheaper.
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="section workflow-sec">
+        <h2 class="section-title">How Arbitrum Processes Transactions</h2>
+        <div class="workflow-steps">
+          <div class="step">
+            <div class="step-badge">1</div>
+            <div class="card-icon">👤</div>
+            <p>You submit a transaction on Arbitrum</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step">
+            <div class="step-badge">2</div>
+            <div class="card-icon">📦</div>
+            <p>Sequencer orders & batches transactions</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step">
+            <div class="step-badge">3</div>
+            <div class="card-icon">⛓️</div>
+            <p>Batch is compressed and posted to Ethereum</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step">
+            <div class="step-badge">4</div>
+            <div class="card-icon">✅</div>
+            <p>Ethereum confirms. Your transaction is final.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>Built by <strong>Rachit Sikka</strong> · 
+           <a href="https://github.com/Rachitbyte" target="_blank">GitHub ↗</a> · 
+           Arbitrum Builder Pods</p>
+        <p class="footer-sub">Arbitrum Web3 Explorer — Lampros DAO Assignment</p>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

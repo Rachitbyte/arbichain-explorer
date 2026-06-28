@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArbiChain Explorer - Live Prices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">◈</span> ARB Explorer
+          </a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="prices.html">Live Prices</a></li>
+            <li><a href="simulator.html">Simulator</a></li>
+          </ul>
+          <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="prices-header">
+          <div>
+            <h1>Live Crypto Prices</h1>
+            <p class="subtitle">Real-time data from CoinGecko API</p>
+          </div>
+          <div class="prices-actions">
+            <button id="refreshBtn" class="btn-outline">↻ Refresh</button>
+            <div id="lastUpdated" class="last-updated">Last updated: --:--:--</div>
+          </div>
+        </div>
+
+        <div id="priceGrid" class="price-grid">
+          <div class="card price-card skeleton"></div>
+          <div class="card price-card skeleton"></div>
+        </div>
+
+        <div class="grid three-col" style="margin-top: 48px;">
+          <div class="card">
+            <h3>ETH Powers Arbitrum</h3>
+            <p class="text-muted">ETH is used to pay gas on Arbitrum. Watching its price shows L2 adoption pressure.</p>
+          </div>
+          <div class="card">
+            <h3>BTC = Market Sentiment</h3>
+            <p class="text-muted">Bitcoin's movement typically dictates broader crypto market direction.</p>
+          </div>
+          <div class="card">
+            <h3>Real-Time = Real Data</h3>
+            <p class="text-muted">This dashboard fetches live data from CoinGecko's public API — no middleman, no account needed.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>Built by <strong>Rachit Sikka</strong> · 
+           <a href="https://github.com/Rachitbyte" target="_blank">GitHub ↗</a> · 
+           Arbitrum Builder Pods</p>
+        <p class="footer-sub">Arbitrum Web3 Explorer — Lampros DAO Assignment</p>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+    <script src="prices.js" defer></script>
+</body>
+</html>

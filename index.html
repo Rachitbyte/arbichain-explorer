@@ -49,47 +49,84 @@
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-content">
-          <div class="badge">Arbitrum Builder Pods · Batch 2025</div>
-          <h1>The Future of <span>Ethereum Scaling</span></h1>
-          <p>Arbitrum is a Layer 2 solution that makes Ethereum faster, cheaper, and ready for mass adoption — without sacrificing security.</p>
-          <div class="hero-ctas">
-            <a href="concepts.html" class="btn-primary">Explore Concepts →</a>
-            <a href="prices.html" class="btn-outline">Live Prices ↗</a>
+            <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-text-col">
+            <div class="badge">Arbitrum Builder Pods · Batch 2025</div>
+            <h1>The Future of <span>Ethereum Scaling</span></h1>
+            <p>Arbitrum is a Layer 2 solution that makes Ethereum faster, cheaper, and ready for mass adoption — without sacrificing security.</p>
+            <div class="hero-ctas">
+              <a href="concepts.html" class="btn-primary">Explore Concepts →</a>
+              <a href="prices.html" class="btn-outline">Live Prices ↗</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-value counter" data-target="55.9" data-suffix="%">0%</div>
+                <div class="stat-label">L2 Market Share</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value counter" data-target="5.65" data-prefix="$" data-suffix="B">0</div>
+                <div class="stat-label">TVL</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value counter" data-target="390" data-suffix="M+">0</div>
+                <div class="stat-label">Transactions</div>
+              </div>
+            </div>
           </div>
-          
-  <svg class="svg-hero-net" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Connections -->
-    <path d="M50,100 L150,50 L250,120 L350,80" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M50,100 L120,150 L250,120 L300,160" stroke="var(--accent-indigo)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M150,50 L200,20 L350,80" stroke="rgba(9, 234, 180, 0.4)" stroke-width="1.5" stroke-dasharray="4"/>
-    <!-- Nodes -->
-    <circle cx="50" cy="100" r="8" fill="var(--bg-color)" stroke="var(--accent-cyan)" stroke-width="3"/>
-    <circle cx="150" cy="50" r="12" fill="var(--bg-color)" stroke="var(--accent-indigo)" stroke-width="3"/>
-    <circle cx="120" cy="150" r="10" fill="var(--bg-color)" stroke="var(--accent-cyan)" stroke-width="3"/>
-    <circle cx="250" cy="120" r="16" fill="var(--bg-color)" stroke="var(--accent-cyan)" stroke-width="4"/>
-    <circle cx="350" cy="80" r="10" fill="var(--bg-color)" stroke="var(--accent-indigo)" stroke-width="3"/>
-    <circle cx="300" cy="160" r="8" fill="var(--bg-color)" stroke="var(--accent-cyan)" stroke-width="3"/>
-    <circle cx="200" cy="20" r="6" fill="var(--bg-color)" stroke="var(--accent-indigo)" stroke-width="2"/>
-    <!-- Inner Pulses -->
-    <circle cx="150" cy="50" r="4" fill="var(--accent-cyan)"/>
-    <circle cx="250" cy="120" r="6" fill="var(--accent-indigo)"/>
-  </svg>
 
-          <div class="hero-stats">
-            <div class="stat-item">
-              <div class="stat-value counter" data-target="55.9" data-suffix="%">0%</div>
-              <div class="stat-label">L2 Market Share</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value counter" data-target="5.65" data-prefix="$" data-suffix="B">0</div>
-              <div class="stat-label">TVL</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value counter" data-target="390" data-suffix="M+">0</div>
-              <div class="stat-label">Transactions</div>
-            </div>
+          <div class="hero-visual-col">
+            <div class="hero-visual-glow"></div>
+            
+            <div class="hero-badge badge-top-left">⚡ High Speed</div>
+            <div class="hero-badge badge-top-right">🛡️ Ethereum Security</div>
+            <div class="hero-badge badge-bottom-left">💰 Low Fees</div>
+            <div class="hero-badge badge-bottom-right">⚙️ EVM Compatible</div>
+            
+            <svg class="hero-main-svg" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="300" cy="300" r="240" stroke="var(--grid-color)" stroke-width="1.5" class="hero-ring ring-1"/>
+              <circle cx="300" cy="300" r="160" stroke="var(--grid-color)" stroke-width="1.5" class="hero-ring ring-2"/>
+              <circle cx="300" cy="300" r="80" stroke="var(--grid-color)" stroke-width="1.5" class="hero-ring ring-3"/>
+              
+              <path d="M60,300 Q150,150 300,300" stroke="var(--accent-indigo)" stroke-width="2" class="hero-path path-1" stroke-linecap="round"/>
+              <path d="M540,300 Q450,450 300,300" stroke="var(--accent-cyan)" stroke-width="2" class="hero-path path-2" stroke-linecap="round"/>
+              <path d="M300,60 Q450,150 300,300" stroke="var(--accent-cyan)" stroke-width="1.5" class="hero-path path-3" stroke-linecap="round"/>
+              <path d="M300,540 Q150,450 300,300" stroke="var(--accent-indigo)" stroke-width="1.5" class="hero-path path-4" stroke-linecap="round"/>
+              
+              <circle cx="60" cy="300" r="12" fill="var(--bg-elevated)" stroke="var(--accent-indigo)" stroke-width="3" class="hero-node"/>
+              <circle cx="540" cy="300" r="16" fill="var(--bg-elevated)" stroke="var(--accent-cyan)" stroke-width="4" class="hero-node"/>
+              <circle cx="300" cy="60" r="10" fill="var(--bg-elevated)" stroke="var(--accent-cyan)" stroke-width="3" class="hero-node"/>
+              <circle cx="300" cy="540" r="14" fill="var(--bg-elevated)" stroke="var(--accent-indigo)" stroke-width="3" class="hero-node"/>
+              
+              <circle cx="180" cy="230" r="6" fill="var(--accent-cyan)" class="hero-pulse p-1"/>
+              <circle cx="420" cy="370" r="8" fill="var(--accent-indigo)" class="hero-pulse p-2"/>
+              <circle cx="230" cy="420" r="5" fill="var(--accent-cyan)" class="hero-pulse p-3"/>
+              <circle cx="370" cy="180" r="7" fill="var(--accent-indigo)" class="hero-pulse p-4"/>
+              
+              <g transform="translate(300, 310)">
+                <g class="hero-platform">
+                  <polygon points="0,-80 120,-30 120,70 0,120 -120,70 -120,-30" fill="var(--bg-surface)" stroke="var(--accent-cyan)" stroke-width="2" opacity="0.9"/>
+                  <polygon points="0,-70 100,-25 100,60 0,105 -100,60 -100,-25" fill="var(--glass-bg)" stroke="var(--accent-indigo)" stroke-width="1.5"/>
+                </g>
+              </g>
+              
+              <g transform="translate(300, 280) scale(1.6)">
+                <g class="hero-logo-float">
+                  <path d="M0,-35 L30,-15 L30,15 L0,35 L-30,15 L-30,-15 Z" fill="url(#heroGrad)" opacity="0.8"/>
+                  <path d="M0,-30 L25,-12 L25,12 L0,30 L-25,12 L-25,-12 Z" fill="none" stroke="var(--accent-cyan)" stroke-width="3"/>
+                  <circle cx="0" cy="5" r="10" fill="var(--accent-indigo)"/>
+                  <circle cx="0" cy="5" r="5" fill="var(--text-heading)"/>
+                  <path d="M0,-18 L12,-2 L-12,-2 Z" fill="var(--bg-primary)"/>
+                </g>
+              </g>
+              
+              <defs>
+                <radialGradient id="heroGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="var(--accent-cyan)" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="var(--accent-indigo)" stop-opacity="0.2"/>
+                </radialGradient>
+              </defs>
+            </svg>
           </div>
         </div>
       </section>

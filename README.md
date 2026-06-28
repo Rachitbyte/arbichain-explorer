@@ -2,6 +2,10 @@
 
 A 4-page educational website exploring Web3 concepts, built as part of the Arbitrum Builder Pods assignment by Lampros DAO.
 
+## 🌐 Live Demo
+
+**Website:** https://rachitbyte.github.io/arbichain-explorer/
+
 ## Pages
 | Page | File | Description |
 |------|------|-------------|

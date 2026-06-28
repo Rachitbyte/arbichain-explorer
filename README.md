@@ -16,6 +16,24 @@ A 4-page educational website exploring Web3 concepts, built as part of the Arbit
 - CoinGecko Public API
 - Google Fonts: Space Grotesk + Space Mono
 
+## Screenshots
+
+### 🏠 Home
+
+![Home](screenshots/home.png)
+
+### 📚 Concepts
+
+![Concepts](screenshots/concepts.png)
+
+### 📈 Live Prices
+
+![Live Prices](screenshots/prices.png)
+
+### ⛏️ Block Simulator
+
+![Block Simulator](screenshots/simulator.png)
+
 ## How to Run
 1. Clone the repo
 2. Open `index.html` in any browser

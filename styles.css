@@ -118,14 +118,9 @@ body.page-exit {
   pointer-events: none;
   z-index: 0;
 }
-.card:hover::before, .block-card:hover::before {
-  opacity: 1;
-}
+
 .card > *, .block-card > * { position: relative; z-index: 1; }
-.card:hover, .block-card:hover {
-  border-color: rgba(9, 234, 180, 0.3);
-  box-shadow: 0 0 30px var(--accent-glow);
-}
+
 
 /* Accent button */
 .btn-primary {
@@ -294,7 +289,7 @@ body.page-exit {
 
 /* Typography Extras */
 .section-title { font-size: 28px; font-weight: 700; color: var(--text-heading); text-align: center; margin-bottom: 16px; }
-.card-icon { font-size: 32px; margin-bottom: 16px; }
+
 
 /* Highlight Boxes */
 .highlight-box {
@@ -401,7 +396,7 @@ tr:last-child td { border-bottom: none; }
 .cyan-text { color: var(--accent-cyan); }
 
 .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-.card-header .card-icon { margin-bottom: 0; }
+.card-header 
 .badge-success { background: rgba(34,197,94,0.15); color: var(--success); border-color: rgba(34,197,94,0.3); }
 .badge-danger { background: rgba(239,68,68,0.15); color: var(--danger); border-color: rgba(239,68,68,0.3); }
 .danger-border { border-color: rgba(239,68,68,0.5); }
@@ -716,7 +711,7 @@ body { animation: page-fade-in 0.6s ease-out forwards; }
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.card:hover, .block-card:hover { background: rgba(255, 255, 255, 0.04); box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
+
 .card::after, .block-card::after {
   content: '';
   position: absolute;
@@ -734,11 +729,11 @@ body { animation: page-fade-in 0.6s ease-out forwards; }
   pointer-events: none;
   z-index: 2;
 }
-.card:hover::after, .block-card:hover::after { opacity: 1; }
+
 @keyframes gradient-border-hover { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-.card-icon { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; }
-.card:hover .card-icon, .block-card:hover .card-icon { transform: scale(1.15) rotate(6deg); }
+
+
 
 .footer a, p a:not(.btn-primary):not(.btn-outline):not(.nav-logo) { position: relative; text-decoration: none !important; }
 .footer a::after, p a:not(.btn-primary):not(.btn-outline):not(.nav-logo)::after {
@@ -749,3 +744,37 @@ body { animation: page-fade-in 0.6s ease-out forwards; }
 
 .flow-arrow, .connection-line { transition: opacity 0.5s ease, transform 0.5s ease; opacity: 0; transform: translateX(-10px); }
 .reveal-active .flow-arrow, .reveal-active .connection-line { opacity: 1; transform: translateX(0); }
+
+/* Premium SaaS Card Hover Logic */
+.card, .block-card, .price-card, .simulator-card, .info-card, .highlight-box {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  cursor: pointer;
+  position: relative;
+}
+
+.card:hover, .block-card:hover, .price-card:hover, .simulator-card:hover, .info-card:hover, .highlight-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(9, 234, 180, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .card:hover, [data-theme="light"] .block-card:hover, [data-theme="light"] .price-card:hover, [data-theme="light"] .highlight-box:hover {
+  box-shadow: 0 20px 40px rgba(5, 150, 105, 0.15);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.card-icon, .icon {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.card:hover .card-icon, .block-card:hover .card-icon, .price-card:hover .card-icon, .info-card:hover .card-icon, .card:hover .icon, .highlight-box:hover .icon {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}

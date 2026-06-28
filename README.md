@@ -22,3 +22,15 @@ A 4-page educational website exploring Web3 concepts, built as part of the Arbit
 
 ## Built By
 Rachit Sikka · [GitHub](https://github.com/Rachitbyte) · Arbitrum Builder Pods · Lampros DAO
+
+## Known Issues & Future Improvements
+
+- CoinGecko free API has a rate limit (~30 req/min). 
+  Refreshing too quickly may temporarily return an error state.
+- Block mining simulator caps nonce at 1,000,000 iterations. 
+  Difficulty is simulated (hash starts with "00"), not real Bitcoin PoW.
+- ARB price may occasionally be unavailable from CoinGecko 
+  free tier — fallback shows last known value.
+- Future: Add more coins (SOL, MATIC) to the price dashboard.
+- Future: Add adjustable mining difficulty (000, 0000) to simulator.
+- Future: Deploy to Vercel for live URL instead of GitHub Pages.

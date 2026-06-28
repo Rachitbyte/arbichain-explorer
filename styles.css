@@ -23,19 +23,53 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.6;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+body.page-exit {
+  opacity: 0;
 }
 
-/* Shared card style */
-.card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
+.ambient-glow {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.08), transparent 40%);
+}
+
+/* Shared card style (Glassmorphism & Magnetic Glow) */
+.card, .block-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 24px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+  will-change: transform;
 }
-.card:hover {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 20px var(--accent-glow);
+.card::before, .block-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(800px circle at var(--card-mouse-x, 50%) var(--card-mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 0;
+}
+.card:hover::before, .block-card:hover::before {
+  opacity: 1;
+}
+.card > *, .block-card > * { position: relative; z-index: 1; }
+.card:hover, .block-card:hover {
+  border-color: rgba(9, 234, 180, 0.3);
+  box-shadow: 0 0 30px var(--accent-glow);
 }
 
 /* Accent button */
@@ -49,10 +83,11 @@ body {
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.1s;
+  transition: opacity 0.2s, transform 0.1s ease-out;
+  will-change: transform;
 }
-.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-.btn-primary:active { transform: translateY(0); }
+.btn-primary:hover { opacity: 0.85; }
+.btn-primary:active { transform: scale(0.98) !important; }
 
 /* Outline button */
 .btn-outline {
@@ -65,9 +100,11 @@ body {
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.1s ease-out;
+  will-change: transform;
 }
 .btn-outline:hover { background: var(--accent-glow); }
+.btn-outline:active { transform: scale(0.98) !important; }
 
 /* Badge */
 .badge {
@@ -101,9 +138,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 13, 20, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(13, 13, 20, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .nav-inner {
   max-width: 1100px;
@@ -377,13 +415,10 @@ tr:last-child td { border-bottom: none; }
 }
 .block-card {
   width: 100%;
-  background: var(--bg-surface);
-  border: 2px solid var(--border);
-  border-radius: 16px;
   padding: 28px;
-  transition: border-color 0.3s;
+  margin-bottom: 24px;
 }
-.block-card.valid-block { border-color: var(--valid-block); box-shadow: 0 0 24px rgba(9,234,180,0.15); }
+.block-card.valid-block { border-color: rgba(9, 234, 180, 0.5); box-shadow: 0 0 24px rgba(9,234,180,0.15); }
 .block-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .block-number { font-size: 16px; font-weight: 700; color: var(--accent-cyan); }
 .block-status { font-size: 13px; font-weight: 500; color: var(--text-muted); }
@@ -431,4 +466,15 @@ tr:last-child td { border-bottom: none; }
   .concept-col:last-child { border-radius: 0 0 12px 12px; }
   .prices-header { flex-direction: column; align-items: flex-start; }
   .prices-actions { align-items: flex-start; }
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
 }
